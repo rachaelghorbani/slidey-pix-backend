@@ -11,8 +11,9 @@ class UsersController < ApplicationController
   end
 
   def create
-    user = User.new(user_params)
+    user = User.find_or_create_by(username: params[:user][:username])
     user.save
+    render json: user
   end
 
   def update
