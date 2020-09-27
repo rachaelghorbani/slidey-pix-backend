@@ -9,6 +9,12 @@ class UserImagesController < ApplicationController
     render json: user_image
   end
 
+  def update
+    user_image = UserImage.find(params[:id])
+    user_image.update(user_image_params)
+    render json: user_image
+  end
+
   private
 
   def user_image_params
