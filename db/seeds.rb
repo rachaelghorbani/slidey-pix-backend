@@ -14,6 +14,7 @@ Category.destroy_all
 animals = Category.create(name: 'animals')
 cities = Category.create(name: 'cities')
 nature = Category.create(name: 'nature')
+custom = Category.create(name: 'my custom puzzles')
 
 potato = User.create(username: 'potato')
 rachael = User.create(username: 'rachael')
