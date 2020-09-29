@@ -4,6 +4,11 @@ class UserImagesController < ApplicationController
     render json: user_images
   end
 
+  def show
+    user_image = UserImage.find(params[:id])
+    render json: user_image
+  end
+
   def create
     user_image = UserImage.find_or_create_by(image_id: params[:user_image][:image_id], user_id: params[:user_image][:user_id])
     render json: user_image
