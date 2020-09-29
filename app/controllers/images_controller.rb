@@ -13,10 +13,12 @@ class ImagesController < ApplicationController
   def create
     image = Image.new(image_params)
     image.save
+    render json: image
   end
 
   def update
     image.update(image_params)
+    render json: image
   end
 
   private
@@ -26,6 +28,6 @@ class ImagesController < ApplicationController
   end
 
   def image_params
-    params.require(:image).permit(:img_url)
+    params.require(:image).permit(:img_url, :user_id)
   end
 end
