@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 2020_09_29_211053) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id"
     t.bigint "category_id"
+    t.text "scramble_pos"
     t.index ["category_id"], name: "index_images_on_category_id"
     t.index ["user_id"], name: "index_images_on_user_id"
   end
