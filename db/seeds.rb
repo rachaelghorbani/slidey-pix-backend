@@ -16,7 +16,9 @@ cities = Category.create(name: 'cities')
 nature = Category.create(name: 'nature')
 custom = Category.create(name: 'my custom puzzles')
 
-potato = User.create(username: 'potato')
+15.times do 
+  User.create(username: Faker::Ancient.unique.hero.downcase)
+end
 rachael = User.create(username: 'rachael')
 alyssa = User.create(username: 'alyssa')
 
@@ -38,7 +40,8 @@ city3 = Image.create(img_url: 'https://upload.wikimedia.org/wikipedia/commons/f/
 city4 = Image.create(img_url: 'https://upload.wikimedia.org/wikipedia/commons/5/5f/Manhattan_from_Weehawken%2C_NJ.jpg', category: cities, scramble_pos: Image.scrambler)
 city5 = Image.create(img_url: 'https://upload.wikimedia.org/wikipedia/commons/1/10/Sky_view_of_Central_Park_taken_from_neighboring_skyscraper_in_New_York_City.jpg', category: cities, scramble_pos: Image.scrambler)
 
-UserImage.create(user: potato, image: nature1)
-UserImage.create(user: potato, image: city1)
-UserImage.create(user: rachael, image: animal1)
+100.times do
+  new_user_image = UserImage.find_or_create_by(user: User.all.sample, image: Image.all.sample)
+  new_user_image.update(completed: true, grid_size: 4, moves: rand(50..300))
+end
 
