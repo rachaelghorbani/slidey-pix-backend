@@ -11,8 +11,8 @@ class ImagesController < ApplicationController
   end
 
   def create
-    params[:scramble_pos] = Image.scrambler
-    image = Image.new(image_params)
+    # params[:scramble_pos] = Image.scrambler
+    image = Image.new(img_url: params[:img_url], user_id: params[:user_id], category_id: params[:category_id], scramble_pos: Image.scrambler)
     image.save
     render json: image
   end
@@ -28,7 +28,7 @@ class ImagesController < ApplicationController
     image = Image.find(params[:id])
   end
 
-  def image_params
+  def image_params()
     params.require(:image).permit(:img_url, :user_id, :category_id, :scramble_pos)
   end
 end
