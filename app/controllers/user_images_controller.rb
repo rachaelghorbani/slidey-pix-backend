@@ -10,7 +10,7 @@ class UserImagesController < ApplicationController
   end
 
   def create
-    user_image = UserImage.find_or_create_by(image_id: params[:user_image][:image_id], user_id: params[:user_image][:user_id])
+    user_image = UserImage.find_or_create_by(image_id: params[:user_image][:image_id], user_id: params[:user_image][:user_id], grid_size: params[:user_image][:grid_size])
     render json: user_image
   end
 
@@ -23,7 +23,7 @@ class UserImagesController < ApplicationController
   private
 
   def user_image_params
-    params.require(:user_image).permit(:user_id, :image_id, :moves, :completed)
+    params.require(:user_image).permit(:user_id, :image_id, :moves, :completed, :grid_size)
   end
   
 end
