@@ -40,8 +40,8 @@ city3 = Image.create(img_url: 'https://upload.wikimedia.org/wikipedia/commons/f/
 city4 = Image.create(img_url: 'https://upload.wikimedia.org/wikipedia/commons/5/5f/Manhattan_from_Weehawken%2C_NJ.jpg', category: cities, scramble_pos: Image.scrambler)
 city5 = Image.create(img_url: 'https://upload.wikimedia.org/wikipedia/commons/1/10/Sky_view_of_Central_Park_taken_from_neighboring_skyscraper_in_New_York_City.jpg', category: cities, scramble_pos: Image.scrambler)
 
-100.times do
+150.times do
   new_user_image = UserImage.find_or_create_by(user: User.all.sample, image: Image.all.sample)
-  new_user_image.update(completed: true, grid_size: 4, moves: rand(50..300))
+  new_user_image.update(completed: true, grid_size: rand(3..5), moves: rand(50..300))
 end
 
