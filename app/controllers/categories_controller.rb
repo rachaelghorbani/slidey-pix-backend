@@ -4,6 +4,7 @@ class CategoriesController < ApplicationController
         categories = Category.all 
         render json: categories
     end 
+    
 
     def update
         category = Category.find(params[:id])
