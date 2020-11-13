@@ -25,7 +25,7 @@ A user can:
 * HTML Canvas
 * Bootstrap
 
-[**Back End**]
+**Back End**
 * Ruby on Rails
 * PostgreSQL
 
